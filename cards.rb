@@ -15,10 +15,14 @@ class Card
 		end
 	end
 	def self.get(str, set = nil)
-		str = str.downcase
-		str.gsub!(/[^a-z]/i, '')
 		set = ALLCARDS if set == nil
-		sym = str.to_sym
+		if str.is_a? String
+			str = str.downcase
+			str.gsub!(/[^a-z]/i, '')
+			sym = str.to_sym
+		else
+			sym = str
+		end
 		raise InvalidCardError, "Card #{str} does not exist" if ! set.include? sym
 		return sym
 	end
