@@ -26,7 +26,7 @@ class Card
 		return @card.to_s.capitalize
 	end
 	def ==(c)
-		return c.hash == self.hash
+		return c.class == self.class && c.hash == self.hash
 	end
 	def hash
 		return [@card, @set].hash
