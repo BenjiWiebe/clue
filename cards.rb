@@ -25,4 +25,10 @@ class Card
 	def desc
 		return @card.to_s.capitalize
 	end
+	def ==(c)
+		return c.hash == self.hash
+	end
+	def hash
+		return [@card, @set].hash
+	end
 end
