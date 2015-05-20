@@ -26,17 +26,17 @@ loop do
 	loop do
 		print "> "
 		reply = get_input.downcase.split
-		the_player = game.players[str2sym(reply[0], $people)]
+		the_player = game.players[Card.get(reply[0], $people)]
 		case reply[1]
 			when "pass", "passed"
-				the_player.cards_possible -= rumor.all
-				if the_player.cards_possible.length == 3
-					the_player.cards_known = the_player.cards_possible.dup
+				the_player.passed_rumor(rumor)
+				if the_player.all_cards_known?
 					puts "Player's cards solved!"
 					the_player.print_known_cards
 				end
-				the_player.print_possible_cards unless the_player.cards_known.length == 3
+				the_player.print_possible_cards unless the_player.all_cards_known?
 			when nil
+				the_player.answered_rumor(rumor)
 				break
 		end
 	end

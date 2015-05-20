@@ -1,4 +1,5 @@
 class Card
+	attr_reader :set
 	PEOPLE = [:mustard, :peacock, :plum, :white, :scarlet, :green] # Complete
 	WEAPONS = [:ax, :dumbbell, :rope, :candlestick, :pistol, :trophy, :knife, :poison]
 	ROOMS = [:hall, :spa, :pool, :theater, :observatory, :kitchen, :livingroom, :diningroom, :guesthall] # pool??
@@ -18,7 +19,7 @@ class Card
 		str.gsub!(/[^a-z]/i, '')
 		set = ALLCARDS if set == nil
 		sym = str.to_sym
-		raise InvalidCard if ! set.include? sym
+		raise InvalidCardError if ! set.include? sym
 		return sym
 	end
 end

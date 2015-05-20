@@ -1,4 +1,2 @@
-class InvalidCard < Exception
-end
-class InvalidRumor < Exception
-end
+class InvalidCardError < StandardError; end
+class InvalidRumorError < StandardError; end
