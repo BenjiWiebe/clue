@@ -33,8 +33,9 @@ loop do
 				if the_player.all_cards_known?
 					puts "Player's cards solved!"
 					the_player.print_known_cards
+				else
+					the_player.print_possible_cards
 				end
-				the_player.print_possible_cards unless the_player.all_cards_known?
 			when nil
 				the_player.answered_rumor(rumor)
 				break
