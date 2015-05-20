@@ -21,4 +21,7 @@ class Rumor
 	def length
 		return @rumor.length
 	end
+	def to_ary
+		return @rumor.values
+	end
 end
