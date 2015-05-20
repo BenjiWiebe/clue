@@ -4,7 +4,7 @@ class Rumor
 		str.gsub!(/[^a-z ]/i, '')
 		parts = str.split
 		if parts.length != 3
-			raise InvalidRumorError
+			raise InvalidRumorError, "Rumor must consist of three cards"
 		end
 		@what = nil
 		@where = nil
@@ -19,11 +19,11 @@ class Rumor
 				when :weapons
 					@what = s
 				else
-					raise InvalidCardError
+					raise InvalidCardError, ""
 			end
 		end
 		if @what.nil? || @where.nil? || @who.nil?
-			raise InvalidRumorError
+			raise InvalidRumorError, "Missing one or more of in rumor: who, what, where"
 		end
 		@all = [@what,@where,@who]
 	end
