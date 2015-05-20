@@ -19,7 +19,10 @@ class Card
 		str.gsub!(/[^a-z]/i, '')
 		set = ALLCARDS if set == nil
 		sym = str.to_sym
-		raise InvalidCardError if ! set.include? sym
+		raise InvalidCardError, "Card #{str} does not exist" if ! set.include? sym
 		return sym
+	end
+	def desc
+		return @card.to_s.capitalize
 	end
 end
