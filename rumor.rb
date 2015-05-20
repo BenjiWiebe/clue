@@ -18,8 +18,6 @@ class Rumor
 					@where = s
 				when :weapons
 					@what = s
-				else
-					raise InvalidCardError, ""
 			end
 		end
 		if @what.nil? || @where.nil? || @who.nil?
