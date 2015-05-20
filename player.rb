@@ -39,7 +39,7 @@ class Player
 	def print_cards(cardset, desc)
 		puts "#{@real_name}'s #{desc} cards (#{cardset.length}):"
 		cardset.each do |c|
-			puts " " + c.to_s.capitalize
+			puts " " + c.desc
 		end
 		puts "---------"
 		puts
