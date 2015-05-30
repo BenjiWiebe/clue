@@ -5,13 +5,11 @@ class Rumor
 			raise InvalidRumorError, "Rumor must consist of three cards"
 		end
 		@rumor = {}
-		sets_not_included = [:people, :rooms, :weapons]
 		parts.each do |p|
-			s = Card.new(p)
-			@rumor[s.set] = s
-			sets_not_included -= [s.set]
+			tmp = get_card(p)
+			@rumor[CARDS[tmp]] = tmp
 		end
-		if sets_not_included.length > 0
+		if @rumor.length < 3
 			raise InvalidRumorError, "Missing one or more of in rumor: who, what, where"
 		end
 	end

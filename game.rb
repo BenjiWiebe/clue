@@ -6,7 +6,7 @@ class Game
 		print "Adding players: "
 		names.each do |name|
 			newplayer = Player.new(name)
-			@initial_players[newplayer.name] = newplayer
+			@initial_players[newplayer.player_card] = newplayer
 			print newplayer.real_name + " "
 		end
 		@players = @initial_players.dup

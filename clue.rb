@@ -26,7 +26,11 @@ loop do
 	loop do
 		print "> "
 		reply = get_input.downcase.split
-		the_player = game.players[Card.get(reply[0], $people)]
+		if reply.length != 2
+			puts "Expected <playername> [pass]."
+			next
+		end
+		the_player = game.players[get_card(reply[0], :people)]
 		case reply[1]
 			when "pass", "passed"
 				the_player.passed_rumor(rumor)
